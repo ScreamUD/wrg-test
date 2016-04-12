@@ -1,0 +1,41 @@
+doctype html
+html(lang="en" dir="ltr")
+  block head
+    include partials/head.jade
+
+  body
+    block header
+      nav.wrg-menu.navbar.navbar-inverse.navbar-fixed-top
+        div.container
+          div.navbar-header
+            button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            div.active-menu-mobile World Of Tanks
+
+          div#navbar.my-navbar(aria-expanded="false")
+            ul.nav.navbar-nav
+              li.active
+                a(href="#") World Of Tanks
+              li
+                a(href="#") World Of Warplanes
+              li
+                a(href="#") World Of Warships
+
+    block content
+      div.container
+        form.top-margin(name="login", action="", method="post")
+          div.form-group.one-line-group
+            input.form-control.text-field(type="text", name="search", value="почему")
+            input.btn.btn-default.submit-button(type="submit", value="найти")
+            div.clearfix
+
+          div.form-group.one-line-group
+            input.form-control.text-field(type="text", name="search", value="why")
+            input.btn.btn-default.submit-button(type="submit", value="go")
+            div.clearfix
+
+    block footer
+      include partials/footer.jade

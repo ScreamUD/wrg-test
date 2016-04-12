@@ -81,16 +81,27 @@ module.exports = function(grunt) {
       }
     },
     jade: {
-      compile: {
-        options: {
-          pretty: true,
-          data: {
-            debug: true
+      first_test: {
+          options: {
+            pretty: true,
+            data: {
+              debug: true
+            }
+          },
+          files: {
+            "first-test.html": ["app/views/first-test.jade"]
           }
-        },
-        files: {
-          "index.html": ["app/views/*.jade"]
-        }
+      },
+      second_test: {
+          options: {
+            pretty: true,
+            data: {
+              debug: true
+            }
+          },
+          files: {
+            "second-test.html": ["app/views/second-test.jade"]
+          }
       }
     },
     watch: {
@@ -120,6 +131,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('buildcss', ['sass:dev', 'scsslint']);
   grunt.registerTask('buildjs', ['jshint', 'concat', 'uglify']);
-  grunt.registerTask('copyfiles', ['jade']);
-  grunt.registerTask('buildhtml', ['jade']);
+  grunt.registerTask('copyfiles', ['copy:bootstrap_fonts']);
+  grunt.registerTask('buildhtml', ['jade:first_test']);
 };
