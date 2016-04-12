@@ -37,5 +37,24 @@ html(lang="en" dir="ltr")
             input.btn.btn-default.submit-button(type="submit", value="go")
             div.clearfix
 
+        ul.nav.nav-tabs
+          li.active
+            a(data-toggle="tab" href="#faq") Вопросы и ответы
+          li
+            a(data-toggle="tab" href="#rools") Правила
+          li
+            a(data-toggle="tab" href="#secure") Безопасность
+
+        div.tab-content
+          div#faq.tab-pane.fade.in.active
+            h3 Вопросы и ответы
+            p Some content.
+          div#rools.tab-pane.fade
+            h3 Правила
+            p Some content.
+          div#secure.tab-pane.fade
+            h3 Безопасность
+            p Some content.
+
     block footer
       include partials/footer.jade

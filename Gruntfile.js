@@ -38,26 +38,15 @@ module.exports = function(grunt) {
       },
       all: ['Gruntfile.js', 'js/main.js']
     },
-    concat: {
-      options: {
-        separator: ';\n'
-      },
-      plugins: {
-        src: [
-          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
-        ],
-        dest: 'js/plugins.js'
-      }
-    },
+    // concat: {
+    //   plugins: {
+    //     src: [
+    //       'node_modules/bootstrap-sass/assets/javascripts/bootstrap/*.js'
+    //     ],
+    //     dest: 'js/plugins.js'
+    //   }
+    // },
     uglify: {
-      options: {
-        preserveComments: 'some',
-        sourceMap: true
-      },
-      plugins: {
-        src: 'js/plugins.js',
-        dest: 'js/plugins.min.js'
-      },
       main: {
         src: 'js/main.js',
         dest: 'js/main.min.js'
@@ -130,7 +119,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
 
   grunt.registerTask('buildcss', ['sass:dev', 'scsslint']);
-  grunt.registerTask('buildjs', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('buildjs', ['jshint', 'uglify']);
   grunt.registerTask('copyfiles', ['copy:bootstrap_fonts']);
   grunt.registerTask('buildhtml', ['jade:first_test']);
 };
