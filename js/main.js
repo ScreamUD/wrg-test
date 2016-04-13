@@ -2,7 +2,10 @@
 (function($) {
     window.wrg = {
         resizeFormFields: function () {
-
+            var that = this;
+            $(window).resize(function () {
+                that.doResizeTasks();
+            });
         },
         getThirtyPercentViewport: function() {
             return $(window).height() * 30 / 100;
@@ -31,7 +34,7 @@
             var i;
 
             for (i = 1; i <= 100; i++) {
-                var checkboxes = $('<label />').html('Опция ' + i)
+                var checkboxes = $('<div class="checkbox-block" />').html('<label for="check-' + i + '">Опция ' + i + '</label>')
                     .prepend($('<input/>').attr({ type: 'checkbox', id: 'check-' + i}));
 
                 $(block).append(checkboxes);
@@ -71,8 +74,6 @@
 
                 }
 
-                //console.log(aChecked);
-
                 $.cookie("checkboxCookie", aChecked);
             });
         },
@@ -91,13 +92,10 @@
             this.doResizeTasks();
             this.appendCheckboxes('#chekboxes-block');
             this.checkCheckedCheckboxes();
+            this.resizeFormFields();
         }
     };
 
     wrg.init();
 
-    $(window).resize(function () {
-        wrg.doResizeTasks();
-    });
-    
 })(jQuery);
