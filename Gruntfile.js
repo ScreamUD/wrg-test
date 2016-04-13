@@ -70,7 +70,7 @@ module.exports = function(grunt) {
       }
     },
     jade: {
-      first_test: {
+      index: {
           options: {
             pretty: true,
             data: {
@@ -78,18 +78,7 @@ module.exports = function(grunt) {
             }
           },
           files: {
-            "first-test.html": ["app/views/first-test.jade"]
-          }
-      },
-      second_test: {
-          options: {
-            pretty: true,
-            data: {
-              debug: true
-            }
-          },
-          files: {
-            "second-test.html": ["app/views/second-test.jade"]
+            "index.html": ["app/views/index.jade"]
           }
       }
     },
@@ -121,5 +110,5 @@ module.exports = function(grunt) {
   grunt.registerTask('buildcss', ['sass:dev', 'scsslint']);
   grunt.registerTask('buildjs', ['jshint', 'uglify']);
   grunt.registerTask('copyfiles', ['copy:bootstrap_fonts']);
-  grunt.registerTask('buildhtml', ['jade:first_test']);
+  grunt.registerTask('buildhtml', ['jade']);
 };
