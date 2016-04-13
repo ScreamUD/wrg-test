@@ -37,20 +37,67 @@
                 $(block).append(checkboxes);
             }
         },
-        initTask: function() {
+        checkCheckedCheckboxes: function () {
+            var aChecked = [],
+                foundIndex;
+
+            var that = this;
+
+            if($.cookie("checkboxCookie")) {
+                aChecked = $.cookie("checkboxCookie").split(',');
+
+                for (var i = 0; i < aChecked.length; i++) {
+                    $(aChecked[i]).prop("checked", true);
+                }
+            }
+
+            $('input[type="checkbox"]').click(function() {
+
+                var checkboxId = '#' + this.id;
+
+                if(!$(checkboxId).is(":checked")) {
+
+                    foundIndex = that.findValueInArray(aChecked, checkboxId);
+                    aChecked.splice(foundIndex, 1);
+
+                } else {
+
+                    if (aChecked.length >= 3) {
+                        $(aChecked[0]).prop("checked", false);
+                        aChecked.splice(0, 1);
+                    }
+
+                    aChecked[aChecked.length] = checkboxId;
+
+                }
+
+                //console.log(aChecked);
+
+                $.cookie("checkboxCookie", aChecked);
+            });
+        },
+        findValueInArray: function(array, value) {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] == value) return i;
+            }
+
+            return -1;
+        },
+        doResizeTasks: function() {
             this.setWidthResult('.one-line-group');
             this.setViewportHeightToCheckoxBlock('#chekboxes-block');
         },
-        createDOMandTasks: function() {
-            this.initTask();
+        init: function() {
+            this.doResizeTasks();
             this.appendCheckboxes('#chekboxes-block');
+            this.checkCheckedCheckboxes();
         }
     };
 
-    wrg.createDOMandTasks();
+    wrg.init();
 
     $(window).resize(function () {
-        wrg.initTask();
+        wrg.doResizeTasks();
     });
     
 })(jQuery);
