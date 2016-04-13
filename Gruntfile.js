@@ -8,13 +8,9 @@ module.exports = function(grunt) {
             'node_modules/bootstrap-sass/assets/stylesheets'
           ]
         },
-        files: [{
-          expand: true,
-          cwd: 'scss',
-          src: ['style.scss'],
-          dest: 'static/css',
-          ext: '.css'
-        }]
+        files: {
+          'static/css/style.css': 'scss/index.scss'
+        }
       },
       dev: {
         options: {
@@ -23,13 +19,9 @@ module.exports = function(grunt) {
             'node_modules/bootstrap-sass/assets/stylesheets'
           ]
         },
-        files: [{
-          expand: true,
-          cwd: 'scss',
-          src: ['style.scss'],
-          dest: 'static/css',
-          ext: '.css'
-        }]
+        files: {
+          'static/css/style.css': 'scss/index.scss'
+        }
       }
     },
     jshint: {
