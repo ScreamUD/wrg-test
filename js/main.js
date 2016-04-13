@@ -13,10 +13,13 @@
                 
                 $(element).find('.text-field').width(resultTextField);
             });
+        },
+        initTask: function() {
+            this.setWidthResult();
         }
     };
     
-    wrg.setWidthResult();
+    wrg.initTask();
 
     $(window).resize(function () {
         wrg.setWidthResult();
