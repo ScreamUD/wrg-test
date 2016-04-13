@@ -7,7 +7,6 @@ bundle install
 # Alternatively, install the scss_lint globally per https://github.com/brigade/scss-lint#installation
 gem install sass
 gem install scss_lint
-gem install compass
 
 # Copy all files that you need
 grunt copyfiles
