@@ -52,6 +52,10 @@ body {
     font-size: 14px;
     text-transform: uppercase;
   }
+
+  .submit-button:hover {
+    @include bg-gradient-t2b-hover($hover-gradient-color-left, $hover-gradient-color-middle, $hover-gradient-color-right);
+  }
 }
 
 .navbar-inverse {
