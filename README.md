@@ -8,6 +8,9 @@ bundle install
 gem install sass
 gem install scss_lint
 
+# Install java for html-lint
+sudo apt-get install oracle-java8-installer
+
 # Copy all files that you need
 grunt copyfiles
 

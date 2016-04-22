@@ -13,6 +13,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-css-count": "~0.3.0",
     "grunt-grunticon": "^2.2.1",
+    "grunt-html": "^7.0.0",
     "grunt-postcss": "^0.8.0",
     "grunt-sass": "~1.0.0",
     "grunt-scss-lint": "~0.3.8",

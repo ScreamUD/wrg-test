@@ -74,6 +74,9 @@ module.exports = function(grunt) {
           }
       }
     },
+    htmllint: {
+      all: ["index.html"]
+    },
     watch: {
       grunt: { files: ['Gruntfile.js'] },
       sass: {
@@ -87,6 +90,10 @@ module.exports = function(grunt) {
       jade: {
         files: 'app/views/*.jade',
         tasks: ['jade']
+      },
+      htmllint: {
+        files: ["index.html"],
+        tasks: ['htmllint']
       }
     }
   });
@@ -98,9 +105,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-html');
 
   grunt.registerTask('buildcss', ['sass:dev', 'scsslint']);
   grunt.registerTask('buildjs', ['jshint', 'uglify']);
   grunt.registerTask('copyfiles', ['copy:bootstrap_fonts']);
-  grunt.registerTask('buildhtml', ['jade']);
+  grunt.registerTask('buildhtml', ['jade', 'htmllint']);
 };

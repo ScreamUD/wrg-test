@@ -8,14 +8,14 @@ html(lang="en" dir="ltr")
       nav.wrg-menu.navbar.navbar-inverse.navbar-fixed-top
         div.container
           div.navbar-header
-            button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar", role="link")
               span.sr-only Toggle navigation
               span.icon-bar
               span.icon-bar
               span.icon-bar
             div.active-menu-mobile World Of Tanks
 
-          div#navbar.my-navbar(aria-expanded="false")
+          div#navbar.my-navbar(aria-expanded="false", role="menubar")
             ul.nav.navbar-nav
               li.active
                 a(href="#") World Of Tanks
@@ -26,7 +26,7 @@ html(lang="en" dir="ltr")
 
     block content
       div.container
-        form.top-margin(name="login", action="", method="post")
+        form.top-margin(name="login", method="post")
           div.form-group.one-line-group
             input.form-control.text-field(type="text", name="search", value="почему")
             input.btn.btn-default.submit-button(type="submit", value="найти")
@@ -64,16 +64,16 @@ html(lang="en" dir="ltr")
                   | - клевета, размещение заведомо ложной информации об Игре, Администрации, Модераторах или Пользователях; <br/>
                   | - угрозы реальной расправы в отношенииили представителей Администрации Проекта. Все виды
             div.tab-content.right
+              p.continue-left-block соглашения. <br/>
               ol.right-tab-first-ol
-                p.continue-left-block соглашения. <br/>
                 li
                   | «Неинформативные сообщения» <br/>
                   | В данный пункт входит: <br/>
                   | - размещение информации (сообщения, фразы, символов и пр.), направленной на отвлечение
                   | Пользователей от темы беседы (флуд); <br/>
                   | - все виды рекламных сообщений, в частности ссылки на интернет-ресурсы.
-                p
-                  | Также не рассматриваются следующие заявки, созданные в Центр поддержки пользователей о нарушении Правил игры:
+              p
+                | Также не рассматриваются следующие заявки, созданные в Центр поддержки пользователей о нарушении Правил игры:
               ol.right-tab-second-ol
                 li «Раскрытие позиций союзников»
                 li «Выталкивание союзника»
